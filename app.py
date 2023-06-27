@@ -1,13 +1,9 @@
 # pip install streamlit
 # steamlit hello
 
-import streamlit as st # streamlit
+import streamlit as st
 import common
-# st. -> ctrl + space
 
+common.page_config()
 
-
-st.title("나의 파이썬 웹 페이지")
-st.header("수업 8일차에 만들었어요")
-st.subheader("그래도 잘 만들었죠")
-st.write("내가 만든 streamlit 페이지, 너를 위해 구었지!!!")
+st.title("21-22년 기간별 박스오피스")
