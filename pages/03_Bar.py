@@ -4,6 +4,7 @@ import seaborn as sns
 import streamlit as st
 import plotly.graph_objects as go
 import common
+import pandas as pd
 
 
 common.page_config()
