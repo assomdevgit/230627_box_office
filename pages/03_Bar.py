@@ -12,7 +12,7 @@ common.page_config()
 st.title("2021 Top 10")
 
 data_2021 = common.get_2021()
-data_2022 = common.get_2021()
+data_2022 = common.get_2022()
 
 common.get_preprocessing(data_2021, data_2022)
 
