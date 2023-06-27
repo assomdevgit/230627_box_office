@@ -23,6 +23,10 @@ null_list = ['대표국적', '국적', '개봉일', '제작사', '배급사', '�
 for i in null_list:
     data_2022[i] = data_2022[i].fillna('정보없음')
 
+data_2021['장르'] = data_2021['장르'].apply(lambda x: x.split(',')[0])
+data_2022['장르'] = data_2022['장르'].apply(lambda x: x.split(',')[0])
+data_2021.rename(columns={'장르':'대표장르'}, inplace=True)
+data_2022.rename(columns={'장르':'대표장르'}, inplace=True)
 def numbering(x): # 인트 변환 함수
     return int(x.replace(',',''))
 
