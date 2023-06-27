@@ -16,26 +16,26 @@ common.page_config()
 
 st.title("Number of Video Games by Genre")
 
-data_2021 = common.get_sales_2021()
-data_2021.columns = data_2021.columns.str.strip()
-genre_counts = data_2021['영화명'].value_counts().sort_values(ascending=False)
-# data_2021.head()
-tab1, tab2 = st.tabs(["Pyplot", "Plotly"])
-
-with tab1:
-    # data_2021.head()
-
-    plt.bar(genre_counts.index, genre_counts.values)
-    # plt.xlabel('Genre')
-    # plt.ylabel('Number of Games')
-    # plt.title('Number of Video Games by Genre')
-    # plt.xticks(rotation=90)
-    st.pyplot(plt)
-
-with tab2:
-    # plt.bar(genre_counts.index, genre_counts.values)
-    # plt.xlabel('Genre')
-    # plt.ylabel('Number of Games')
-    # plt.title('Number of Video Games by Genre')
-    # plt.xticks(rotation=90)
-    # st.pyplot(plt)
+# data_2021 = common.get_sales_2021()
+# data_2021.columns = data_2021.columns.str.strip()
+# genre_counts = data_2021['영화명'].value_counts().sort_values(ascending=False)
+# # data_2021.head()
+# tab1, tab2 = st.tabs(["Pyplot", "Plotly"])
+#
+# with tab1:
+#     # data_2021.head()
+#
+#     plt.bar(genre_counts.index, genre_counts.values)
+#     # plt.xlabel('Genre')
+#     # plt.ylabel('Number of Games')
+#     # plt.title('Number of Video Games by Genre')
+#     # plt.xticks(rotation=90)
+#     st.pyplot(plt)
+#
+# with tab2:
+#     # plt.bar(genre_counts.index, genre_counts.values)
+#     # plt.xlabel('Genre')
+#     # plt.ylabel('Number of Games')
+#     # plt.title('Number of Video Games by Genre')
+#     # plt.xticks(rotation=90)
+#     # st.pyplot(plt)
