@@ -2,11 +2,8 @@
 # steamlit hello
 
 import streamlit as st # streamlit
-
+import common
 # st. -> ctrl + space
-
-
-
 
 st.title("나의 파이썬 웹 페이지")
 st.header("수업 8일차에 만들었어요")
