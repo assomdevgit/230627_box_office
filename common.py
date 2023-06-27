@@ -32,8 +32,8 @@ def get_preprocessing(data_2021, data_2022):
     data_2022['장르'] = data_2022['장르'].apply(lambda x: x.split(',')[0])
     data_2021.rename(columns={'장르':'대표장르'}, inplace=True)
     data_2022.rename(columns={'장르':'대표장르'}, inplace=True)
-    def numbering(x): # 인트 변환 함수
-        return int(x.replace(',',''))
+    # def numbering(x): # 인트 변환 함수
+    #     return int(x.replace(',',''))
 
     number_list = ['매출액', '누적매출액', '관객수', '누적관객수', '스크린수'] #인트 변환 적용
     for i in number_list:
@@ -45,3 +45,6 @@ def get_preprocessing(data_2021, data_2022):
     # df_2021 = data_2021[['영화명', '개봉일', '매출액', '매출액점유율', '누적매출액', '관객수', '누적관객수', '스크린수', '대표국적', '등급', '대표장르']]
     # df_2022 = data_2022[['영화명', '개봉일', '매출액', '매출액점유율', '누적매출액', '관객수', '누적관객수', '스크린수', '대표국적', '등급', '대표장르']]
     # df_2021.head()
+
+def numbering(x): # 인트 변환 함수
+    return int(x.replace(',',''))
