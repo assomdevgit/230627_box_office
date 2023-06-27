@@ -73,31 +73,47 @@ with tab1:
 
     # x축 레이블 기울기 설정
     plt.xticks(rotation=90)
+
     st.pyplot(plt)
 
 
 with tab2:
-    df_2021.loc[:, '대표장르']
-    data = {
-        'category': ['A', 'B', 'C', 'D', 'E'],
-        'value': [10, 20, 15, 25, 30]
-    }
 
-    # 데이터를 DataFrame으로 변환
-    df = pd.DataFrame(data)
+    top10_2021 = df_2021.iloc[:10, :]
+    top10_2022 = df_2022.iloc[:10, :]
+    # 데이터 설정
+    x = ['1위', '2위', '3위', '4위', '5위', '6위', '7위', '8위', '9위', '10위']  # x축 레이블
+    y1 = top10_2021.loc[:, '관객수']  # 첫 번째 막대 그래프 데이터
+    y2 = top10_2022.loc[:, '관객수']  # 두 번째 막대 그래프 데이터
 
-    # category로 그룹화하여 그룹별 합계 계산
-    # value 값 변경
-    for i in range(len(df['category'])):
-        if df['category'][i] != "A":
-            df['category'][i] = "F"
+    # 첫 번째 막대 그래프 생성
+    trace1 = go.Bar(
+        x=x,
+        y=y1,
+        name='2021'
+    )
 
-    df1 = df.groupby('category')['value'].sum()
-    df1.head()
+    # 두 번째 막대 그래프 생성
+    trace2 = go.Bar(
+        x=x,
+        y=y2,
+        name='2022'
+    )
 
-    # 막대 그래프 그리기
-    categories = df1.index
-    values = df1.values
+    # 데이터를 리스트로 묶고 레이아웃 설정
+    data = [trace1, trace2]
+    layout = go.Layout(
+        barmode='group'  # 그룹 형태로 막대 그래프를 그리도록 설정
+    )
 
-    plt.bar(categories, values)
+    # 그래프 생성
+    fig = go.Figure(data=data, layout=layout)
+    fig.update_layout(
+        title={
+            'text': "21년 22년 탑 10 관객수 비교",
+            'x': 0.5,  # 제목을 표 가운데로 위치시키기 위해 x 값 조정 (0.0 ~ 1.0)
+            'xanchor': 'center',  # x 축 기준으로 제목을 가운데 정렬
+            'yanchor': 'top'  # 제목을 상단에 위치
+        })
+
     st.pyplot(plt)
