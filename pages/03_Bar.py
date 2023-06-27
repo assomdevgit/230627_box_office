@@ -74,8 +74,8 @@ with tab1:
     # x축 레이블 기울기 설정
     plt.xticks(rotation=90)
 
-    st.pyplot(plt)
-
+    # st.pyplot(plt)
+    st.plotly_chart(plt)
 
 with tab2:
 
