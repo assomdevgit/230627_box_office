@@ -31,3 +31,9 @@ with tab1:
     # st.pyplot(plt)
 
 with tab2:
+    # plt.bar(genre_counts.index, genre_counts.values)
+    # plt.xlabel('Genre')
+    # plt.ylabel('Number of Games')
+    # plt.title('Number of Video Games by Genre')
+    # plt.xticks(rotation=90)
+    # st.pyplot(plt)
