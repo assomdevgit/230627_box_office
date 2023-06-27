@@ -117,4 +117,4 @@ with tab2:
         })
     # 그래프 출력
     fig.show()
-    # st.pyplot(plt)
+    st.pyplot(fig)
