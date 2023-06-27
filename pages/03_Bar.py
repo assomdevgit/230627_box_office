@@ -18,7 +18,7 @@ st.title("Number of Video Games by Genre")
 
 data_2021 = common.get_sales_2021()
 data_2021.columns = data_2021.columns.str.strip()
-genre_counts = df['매출액'].value_counts().sort_values(ascending=False)
+genre_counts = data_2021['영화명'].value_counts().sort_values(ascending=False)
 # data_2021.head()
 tab1, tab2 = st.tabs(["Pyplot", "Plotly"])
 
