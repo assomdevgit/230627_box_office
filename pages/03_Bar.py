@@ -117,4 +117,5 @@ with tab2:
         })
     # 그래프 출력
     fig.show()
-    st.pyplot(fig)
+    # st.pyplot(fig)
+    st.plotly_chart(fig)
