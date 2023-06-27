@@ -75,6 +75,7 @@ with tab1:
     plt.xticks(rotation=90)
     st.pyplot(plt)
 
+
 with tab2:
     data = {
         'category': ['A', 'B', 'C', 'D', 'E'],
