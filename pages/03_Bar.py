@@ -77,6 +77,7 @@ with tab1:
 
 
 with tab2:
+    df_2021.loc[:, '대표장르']
     data = {
         'category': ['A', 'B', 'C', 'D', 'E'],
         'value': [10, 20, 15, 25, 30]
