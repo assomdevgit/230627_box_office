@@ -115,5 +115,6 @@ with tab2:
             'xanchor': 'center',  # x 축 기준으로 제목을 가운데 정렬
             'yanchor': 'top'  # 제목을 상단에 위치
         })
-
+    # 그래프 출력
+    fig.show()
     st.pyplot(plt)
