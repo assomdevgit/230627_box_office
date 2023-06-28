@@ -51,8 +51,8 @@ sale_grp_2021
 tab1, tab2 = st.tabs(["Sales", "Numbers"])
 
 with tab1:
+    st.subheader("국가별 매출 현황")
     # 데이터 생성
-
     trace1 = go.Bar(x=sale_grp_2021.index, y=sale_grp_2021.values, name='2021')
     trace2 = go.Bar(x=sale_grp_2022.index, y=sale_grp_2022.values, name='2022')
 
@@ -61,9 +61,19 @@ with tab1:
     layout = go.Layout(xaxis={'title': '국가별'}, yaxis={'title': '매출액'})
 
     fig = go.Figure(data=data, layout=layout)
-    fig.show()
+
+    fig.update_layout(
+        title={
+            'text': "21년 22년 국가별 매출",
+            'x': 0.5,  # 제목을 표 가운데로 위치시키기 위해 x 값 조정 (0.0 ~ 1.0)
+            'xanchor': 'center',  # x 축 기준으로 제목을 가운데 정렬
+            'yanchor': 'top'  # 제목을 상단에 위치
+        })
     # st.pyplot(plt)
     st.plotly_chart(fig)
+
+    st.write()
+
 
 with tab2:
 
