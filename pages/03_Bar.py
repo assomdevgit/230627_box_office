@@ -73,7 +73,34 @@ with tab1:
     st.plotly_chart(fig)
 
     st.write()
+    st.subheader("장르별 영화 상영수")
 
+    gnr_repl_20021 = df_2021['대표장르']
+    gnr_grp_2021 = gnr_repl_20021.groupby(gnr_repl_20021.values).count()
+
+    gnr_repl_20022 = df_2022['대표장르']
+    gnr_grp_2022 = gnr_repl_20022.groupby(gnr_repl_20022.values).count()
+
+    trace1 = go.Bar(x=gnr_grp_2021.index, y=gnr_grp_2021.values, name='2021')
+    trace2 = go.Bar(x=gnr_grp_2022.index, y=gnr_grp_2022.values, name='2022')
+
+    data = [trace1, trace2]
+
+    layout = go.Layout(xaxis={'title': '장르'}, yaxis={'title': '상영수'})
+
+    fig = go.Figure(data=data, layout=layout)
+
+    fig.update_layout(
+        title={
+            'text': "21년 22년 장르별 상영수",
+            'x': 0.5,  # 제목을 표 가운데로 위치시키기 위해 x 값 조정 (0.0 ~ 1.0)
+            'xanchor': 'center',  # x 축 기준으로 제목을 가운데 정렬
+            'yanchor': 'top'  # 제목을 상단에 위치
+        })
+
+    st.plotly_chart(fig)
+
+    st.write()
 
 with tab2:
 
