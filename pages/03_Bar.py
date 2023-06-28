@@ -53,29 +53,17 @@ tab1, tab2 = st.tabs(["Sales", "Numbers"])
 with tab1:
     # 데이터 생성
 
-    # 막대 그래프 크기 조절
-    plt.figure(figsize=(12, 4))
-    plt.xlabel('국가')
-    plt.ylabel('매출(단위 억원)')
-    plt.title('국가별 매출 성장률')
+    trace1 = go.Bar(x=sale_grp_2021.index, y=sale_grp_2021.values, name='2021')
+    trace2 = go.Bar(x=sale_grp_2022.index, y=sale_grp_2022.values, name='2022')
 
-    # 막대 너비 설정
-    bar_width = 0.5
+    data = [trace1, trace2]
 
-    # 첫 번째 데이터 그리기
-    plt.bar(sale_grp_2021.index, sale_grp_2021.values // 100_000_000, width=bar_width, align='center', label='2021')
+    layout = go.Layout(xaxis={'title': '국가별'}, yaxis={'title': '매출액'})
 
-    # 두 번째 데이터 겹쳐서 그리기
-    plt.bar(sale_grp_2022.index, sale_grp_2022.values // 100_000_000, width=bar_width, align='edge', label='2022')
-
-    # 범례(legend) 표시
-    plt.legend()
-
-    # x축 레이블 기울기 설정
-    plt.xticks(rotation=90)
-
-    st.pyplot(plt)
-    # st.plotly_chart(plt)
+    fig = go.Figure(data=data, layout=layout)
+    fig.show()
+    # st.pyplot(plt)
+    st.plotly_chart(fig)
 
 with tab2:
 
