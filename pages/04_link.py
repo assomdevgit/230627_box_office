@@ -1,30 +1,9 @@
 import streamlit as st
-from streamlit.report_thread import get_report_ctx
-from streamlit.server.server import Server
 
-# SessionState 클래스 정의
-class SessionState:
-    def __init__(self, **kwargs):
-        self.__dict__.update(kwargs)
+# 이미지 파일 경로
+image_path = "img/아바타.jpg"
 
-# 현재 세션의 고유 ID를 얻는 함수
-def get_session_id():
-    session_id = get_report_ctx().session_id
-    session_info = Server.get_current()._get_session_info(session_id)
-    return session_info.id
-
-# SessionState 생성
-session_state = SessionState(button_clicked=False)
-
-# 버튼 생성
-if st.button("페이지 이동"):
-    session_state.button_clicked = True
-
-# 버튼이 클릭되었을 때 처리
-if session_state.button_clicked:
-    # 페이지 이동을 위해 쿼리 매개변수 설정
-    query_params = {"page": "new_page"}
-    new_url = st.experimental_set_query_params(**query_params)
-
-    # 페이지 리다이렉션
-    st.experimental_rerun()
+# 이미지를 클릭했을 때 처리
+if st.button("이미지 보기"):
+    # 이미지 표시
+    st.image(image_path, caption="클릭해서 이미지를 보세요")
