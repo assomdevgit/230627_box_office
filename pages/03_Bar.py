@@ -104,11 +104,11 @@ with tab1:
     st.subheader("국가별 영화 관객수")
 
     # 국가별 10만 이상의 관객수
-    top_2021 = df_2021[df_2021['관객수'] > 100000]
-    grp_audi_2021 = top_2021.groupby('대표국적')['관객수'].sum()
+    # top_2021 = df_2021[df_2021['관객수'] > 100000]
+    grp_audi_2021 = df_2021.groupby('대표국적')['관객수'].sum()
 
-    top_2022 = df_2022[df_2021['관객수'] > 100000]
-    grp_audi_2022 = top_2022.groupby('대표국적')['관객수'].sum()
+    # top_2022 = df_2022[df_2021['관객수'] > 100000]
+    grp_audi_2022 = df_2021.groupby('대표국적')['관객수'].sum()
 
     data = [go.Pie(labels=grp_audi_2021.index, values=grp_audi_2021.values)]
     layout = go.Layout(title='2021년 국가별 영화 관객수')
